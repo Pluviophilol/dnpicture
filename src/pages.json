@@ -13,6 +13,12 @@
 			}
 		},
 		{
+			"path": "pages/album/index",
+			"style": {
+				"navigationBarTitleText": "专辑详情"
+			}
+		},
+		{
 			"path": "pages/horizontal/index",
 			"style": {
 				"navigationBarTitleText": "横屏"
@@ -38,10 +44,9 @@
 		}
 	],
 	"globalStyle": {
-		"navigationBarTextStyle": "black",
-		"navigationBarTitleText": "uni-app",
-		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"navigationBarTextStyle": "white",
+		"navigationBarTitleText": "懂你找图",
+		"navigationBarBackgroundColor": "#000"
 	},
 	"tabBar": {
 		"color": "#8a8a8a",
