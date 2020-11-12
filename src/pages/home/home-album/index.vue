@@ -111,7 +111,7 @@ export default {
       flex: 1;
       padding: 10rpx;
       image {
-        height: 200px;
+        height: 200rpx;
         width: 200rpx;
       }
     }

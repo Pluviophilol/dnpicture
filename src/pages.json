@@ -5,7 +5,7 @@
 				"^uni-(.*)": "@dcloudio/uni-ui/lib/uni-$1/uni-$1.vue"
 		}
 	},
-	"pages": [ 
+	"pages": [
 		{
 			"path": "pages/home/index",
 			"style": {
@@ -16,6 +16,12 @@
 			"path": "pages/album/index",
 			"style": {
 				"navigationBarTitleText": "专辑详情"
+			}
+		}, 
+		{
+			"path": "pages/imgDetail/index",
+			"style": {
+				"navigationBarTitleText": "图片详情"
 			}
 		},
 		{

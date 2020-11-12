@@ -11,7 +11,7 @@
     <!-- 专辑作者 -->
     <view class="album_author">
       <view class="album_author_info">
-        <image :src="album.user.avatar"></image>
+        <image mode="widthFix" :src="album.user.avatar"></image>
         <view class="author_name"> {{ album.user.name }} </view>
       </view>
       <view class="album_author_desc">
@@ -21,18 +21,27 @@
     </view>
     <!-- 图片列表 -->
     <view class="album_list">
-      <view class="album_item" v-for="item in wallpaper" :key="item.id">
-        <image
-          mode="widthFix"
-          :src="item.thumb + item.rule.replace('$<Height>', 360)"
-        ></image>
+      <view
+        class="album_item"
+        v-for="(item, index) in wallpaper"
+        :key="item.id"
+      >
+        <go-detail :list="wallpaper" :index="index">
+          <image
+            mode="aspectFill"
+            :src="item.thumb + item.rule.replace('$<Height>', 360)"
+          ></image>
+        </go-detail>
       </view>
     </view>
   </view>
 </template>
 
 <script>
+import goDetail from '@/components/goDetail';
+
 export default {
+  components: { goDetail },
   data() {
     return {
       params: {
@@ -49,6 +58,7 @@ export default {
   },
   onLoad(options) {
     this.id = options.id;
+    // this.id = '5d5f8e45e7bce75ae7fb8278';
     this.getList();
   },
   // 页面触底 上拉加载下一页事件
@@ -70,6 +80,7 @@ export default {
         url: `http://157.122.54.189:9088/image/v1/wallpaper/album/${this.id}/wallpaper`,
         data: this.params,
       });
+      console.log(res);
       if (Object.keys(this.album).length === 0) {
         this.album = res.album;
       }
@@ -145,7 +156,8 @@ export default {
   .album_item {
     width: 33.33%;
     border: 3rpx solid #fff;
-    img {
+    image {
+      height: 160rpx;
     }
   }
 }
